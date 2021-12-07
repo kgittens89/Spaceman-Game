@@ -12,8 +12,8 @@ A browser-based Spaceman two-player game. A user, player 1, will input a word to
 
 
 ## Wire Frames
-![Spaceman initial screen sketch](./assets/Spaceman-sketch.png)
-![How to play modal](./assets/How-to-play.png)
+![Spaceman initial screen sketch](./assets/images/Spaceman-sketch.png)
+![How to play modal](./assets/images/How-to-play.png)
 
 
 ## User Stories
