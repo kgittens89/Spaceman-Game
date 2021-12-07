@@ -8,26 +8,40 @@
     <title>Spaceman Game</title>
 </head>
 <body>
+    <h1>Spaceman Game</h1>
     <div class="container">
-        <h1>Spaceman Game</h1>
-        <div class="guessed-letters"></div>
+        <div class="top-section">
+        <aside class="guessed-letters">
+            <h4>Previously Guessed Letters</h4>
+        </aside>
         <div class="spaceship-images">
             <div class="first-row">
-            <img src="./assets/images/spaceship-top-left.png" alt="">
-            <img src="./assets/images/spaceship-top-middle.png" alt="">
-            <img src="./assets/images/spaceship-top-right.png" alt="">
+                <img src="./assets/images/spaceship-top-left.png" alt="">
+                <img src="./assets/images/spaceship-top-middle.png" alt="">
+                <img src="./assets/images/spaceship-top-right.png" alt="">
             </div>
             <div class="second-row">
-            <img src="./assets/images/spaceship-mid-left.png" alt="">
-            <img src="./assets/images/spaceship-mid-middle.png" alt="">
-            <img src="./assets/images/spaceship-mid-right.png" alt="">
+                <img src="./assets/images/spaceship-mid-left.png" alt="">
+                <img src="./assets/images/spaceship-mid-middle.png" alt="">
+                <img src="./assets/images/spaceship-mid-right.png" alt="">
             </div>
             <div class="third-row">
-            <img src="./assets/images/spaceship-bottom-left.png" alt="">
-            <img src="./assets/images/spaceship-bottom-middle.png" alt="">
-            <img src="./assets/images/spaceship-bottom-right.png" alt="">
+                <img src="./assets/images/spaceship-bottom-left.png" alt="">
+                <img src="./assets/images/spaceship-bottom-middle.png" alt="">
+                <img src="./assets/images/spaceship-bottom-right.png" alt="">
             </div>
         </div>
+        <div class="input-section">
+            <label for="letter-input">Pick a letter</label>
+            <input type="text" id="letter-input">
+            <button class="submit-input">Submit</button>
+        </div>
+        </div>
+         <button class="how-to-play">How to play</button>
+        <div class="guessing-board">
+            <h3>Guess the word</h3>
+        </div>
+       
     </div>
     <script src="./script.js"></script>
 </body>
