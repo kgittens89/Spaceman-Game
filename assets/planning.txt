@@ -4,6 +4,7 @@ Planning
 - The game page starts, popping up a 'how to play' modal a set time after page load. 
     - the how to play moday will list the instructions for the game. 
     - At the bottom will be a button to close the modal. 
+    
 - The first player will put a word into the word-to-guess input section.
     - That word is seperated by letters, and that amount of blank spaces will pop up in the guessing-board section 
 - The secondPlayer will then have a chance to guess the letters using the letter-input field

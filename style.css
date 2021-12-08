@@ -18,6 +18,9 @@ aside {
     flex: 1 1 30%;
 }
 
+h3 {
+    text-align: center;
+}
 
 .guessing-board {
     height: 150px;
