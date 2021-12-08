@@ -5,11 +5,20 @@ Planning
     - the how to play moday will list the instructions for the game. 
     - At the bottom will be a button to close the modal. 
 - The first player will put a word into the word-to-guess input section.
-    - That word is seperated by letters, that number of letters is how many blank spaces will pop up in the guessing-board section 
-    
+    - That word is seperated by letters, and that amount of blank spaces will pop up in the guessing-board section 
+- The secondPlayer will then have a chance to guess the letters using the letter-input field
+    - input a single letter then hit the submit button
+- When that letter is inputed, if the letter-input matches any of the missing letters of the word-to-guess, that letter is revealed on it's blank space. 
+    - If the letter-input doesn't match any letters from word-to-guess, a part o fthe spaceship image will reveal itself.
+        - The missed letter will also be added to the aside section. 
+- The round ends when secondPlayer guesses all of the letters
+    - Or when the ship is completely built. 
+
+
 
 
 
 
 Stretch goals
 - Currently, the image will have small spaces between them. Try to make it so after a set time, the images all come together to make one image. 
+- Add a reset button to start the game over. 
