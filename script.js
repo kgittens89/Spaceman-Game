@@ -8,7 +8,7 @@ let wordToGuess;
 
 /*----- cached element references -----*/
 const howToPlayBtn = document.querySelector('.how-to-play');
-const letterInput = document.querySelector('#letter-input');
+
 const inputGroupBtns = document.querySelector('.input-section')
 const guessBoard = document.querySelector('.guessing-board');
 const previousGuesses = document.querySelector('.guessed-letters');
@@ -43,7 +43,7 @@ function displayEmptyBoard() {
         let spanEl = document.createElement('span');
         let pEl = document.createElement('p')
         pEl.innerText = wordArr[i];
-        pEl.classList.add('letter-spread')
+        pEl.classList.add('letter-spread', `word${i}`);
         spanEl.appendChild(pEl);
         spanEl.classList.add('word-spread');
         guessBoard.appendChild(spanEl);
@@ -53,6 +53,22 @@ function displayEmptyBoard() {
 
 function checkLetterGuess(event) {
     if (event.target.classList.contains('submit-input')) {
-        console.log('letter')
-    }
+        const letterInput = document.querySelector('#letter-input').value.toUpperCase();
+        if (LETTERS.includes(letterInput)) {
+            if (wordArr.includes(letterInput)) {
+                let wordIndex = wordArr.indexOf(letterInput);
+                
+                console.log(`word${wordIndex}`);
+                // const word = document.getElementsByClassName(
+                //     `word${wordIndex}`)
+                // console.log(word)
+                //     word.style.background = 'red';
+                //     wordArr.splice(0, 1)
+                //     console.log(wordArr)
+            } else {
+                console.log('here');
+                spaceshipImgs[0].style.visibility = 'visible';
+            }
+        } 
+    } 
 }
