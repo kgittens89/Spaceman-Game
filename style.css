@@ -64,3 +64,21 @@ div img {
     border: 1px solid black;
 
 }
+
+.word-spread {
+    display: inline-block;
+    /* display: flex;
+    justify-content: space-evenly; */
+    font-size: 3em;
+    line-height: 0.5em;
+    letter-spacing: 1em;
+    border: 1px solid black;
+    /* text-decoration: underline;
+    text-underline-position: under; */
+}
+
+.letter-spread {
+    display: flex;
+    border-bottom: black;
+    visibility: hidden;
+}

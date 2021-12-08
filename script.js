@@ -16,17 +16,23 @@ const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
 
 
 /*----- event listeners -----*/
-inputGroupBtns.addEventListener('click', seperateWordInput)
+inputGroupBtns.addEventListener('click', renderGame)
 
 /*----- functions -----*/
 
+
+function renderGame(event) {
+    seperateWordInput(event)  
+    checkLetterGuess(event)
+}
+
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
-       wordToGuess = document.querySelector('#word-to-guess');
+        wordToGuess = document.querySelector('#word-to-guess');
         console.log('clicked');
         wordArr = wordToGuess.value.toUpperCase().split('');
         console.log(wordArr);
-        displayEmptyBoard()
+        displayEmptyBoard();
         wordToGuess.value = '';
     }
 }
@@ -35,8 +41,18 @@ function seperateWordInput(event) {
 function displayEmptyBoard() {
     for (let i = 0; i < wordArr.length; i++) {
         let spanEl = document.createElement('span');
-        spanEl.innerText = wordArr[i];
+        let pEl = document.createElement('p')
+        pEl.innerText = wordArr[i];
+        pEl.classList.add('letter-spread')
+        spanEl.appendChild(pEl);
+        spanEl.classList.add('word-spread');
         guessBoard.appendChild(spanEl);
     }
 };
 
+
+function checkLetterGuess(event) {
+    if (event.target.classList.contains('submit-input')) {
+        console.log('letter')
+    }
+}
