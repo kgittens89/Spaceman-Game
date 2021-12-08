@@ -5,6 +5,7 @@ const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 /*----- app's state (variables) -----*/
 let wordArr = [];
 let wordToGuess;
+let imgIndex = 0;
 
 /*----- cached element references -----*/
 const howToPlayBtn = document.querySelector('.how-to-play');
@@ -18,9 +19,11 @@ const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
 /*----- event listeners -----*/
 inputGroupBtns.addEventListener('click', renderGame)
 
+
+/*----- helper functions -----*/
+
+
 /*----- functions -----*/
-
-
 function renderGame(event) {
     seperateWordInput(event)  
     checkLetterGuess(event)
@@ -29,9 +32,7 @@ function renderGame(event) {
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
         wordToGuess = document.querySelector('#word-to-guess');
-        console.log('clicked');
         wordArr = wordToGuess.value.toUpperCase().split('');
-        console.log(wordArr);
         displayEmptyBoard();
         wordToGuess.value = '';
     }
@@ -51,24 +52,36 @@ function displayEmptyBoard() {
 };
 
 
+let wordIndex = [];
+
 function checkLetterGuess(event) {
     if (event.target.classList.contains('submit-input')) {
         const letterInput = document.querySelector('#letter-input').value.toUpperCase();
         if (LETTERS.includes(letterInput)) {
             if (wordArr.includes(letterInput)) {
-                let wordIndex = wordArr.indexOf(letterInput);
+                findPositions(wordArr, letterInput)
+                let word;
+                for (let i = 0; i < wordIndex.length; i++) {
+                    word = document.querySelector(`.word${wordIndex[i]}`);
+                    word.style.visibility = 'visible';
+                }
                 
-                console.log(`word${wordIndex}`);
-                // const word = document.getElementsByClassName(
-                //     `word${wordIndex}`)
-                // console.log(word)
-                //     word.style.background = 'red';
-                //     wordArr.splice(0, 1)
-                //     console.log(wordArr)
             } else {
                 console.log('here');
-                spaceshipImgs[0].style.visibility = 'visible';
+                spaceshipImgs[imgIndex].style.visibility = 'visible';
+                imgIndex++;
             }
         } 
     } 
 }
+
+
+// This article was referenced for the following function 
+// https://www.tutorialspoint.com/find-and-return-array-positions-of-multiple-values-javascript
+function findPositions(first, second) {
+    first.forEach((element, index) => {
+        if (second.includes(element)) {
+            wordIndex.push(index)
+        }
+    })
+};
