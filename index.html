@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Spaceman Game</title>
 </head>
@@ -45,6 +48,21 @@
             </div>
         </div>
         <button class="how-to-play">How to play</button>
+        <div id="how-to-play-modal">
+            <div id="modal-textbox">
+                <h1>How to play Spaceman</h1>
+                <ol>
+                    <li>Player 1 will input a word to be guessed in the appropriate box. Be sure to submit your word.</li>
+                    <li>This will layout empty boxes for the amount of letters that word contains.</li>
+                    <li>Player 2 will then input 1 letter at a time, into the appropriate box. Be sure to submit your guess.</li>
+                    <li>The round is over when either the word is guessed, or the spaceship is completely visible.</li>
+                    <li>Good luck!</li>
+                </ol>
+                <div id="modal-footer">
+                    <button href="#" id="close">Close</button>
+                </div>
+            </div>
+        </div>
         <h3>Guess the word</h3>
         <div class="guessing-board"></div> 
     </div>

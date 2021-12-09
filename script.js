@@ -11,15 +11,21 @@ let wordArr = [];
 let previousGuessedLetters = [];
 
 /*----- cached element references -----*/
-const howToPlayBtn = document.querySelector('.how-to-play');
 const inputGroupBtns = document.querySelector('.input-section')
 const guessBoard = document.querySelector('.guessing-board');
 const previousGuessesBoard = document.querySelector('.guessed-letters');
 const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
 
+/*----- modal cached element references ----*/
+const howToPlayBtn = document.querySelector('.how-to-play');
+const modal = document.querySelector('#how-to-play-modal');
+const closeBtn = document.querySelector('#close');
+
 
 /*----- event listeners -----*/
 inputGroupBtns.addEventListener('click', renderGame)
+howToPlayBtn.addEventListener('click', openModal)
+closeBtn.addEventListener('click', closeModal);
 
 
 /*----- helper functions -----*/
@@ -42,6 +48,7 @@ function renderGame(event) {
 
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
+        guessBoard.innerText = '';
         wordToGuessInput = document.querySelector('#word-to-guess');
         wordArr = wordToGuessInput.value.toUpperCase().split('');
         displayEmptyBoard();
@@ -75,7 +82,7 @@ function checkLetterGuess(event) {
             } else {
                 spaceshipImgs[imgIndex].style.visibility = 'visible';
                 imgIndex++;
-                console.log(imgIndex)
+                checkIfLoser();
             }
             addToPreviouslyGuessed(letterInputValue);
             letterInput.value = '';
@@ -92,3 +99,22 @@ function addToPreviouslyGuessed(letter) {
         previousGuessesBoard.append(spanEl)
     }
 };
+
+function checkIfLoser() {
+	if (imgIndex >= 9) {
+		console.log('you lost');
+		// spaceshipImgs.style.backgroundImage =
+		// 	'url(./assets/images/rocketLaunch.jpg)';
+	}
+}
+
+/*----- Modal Functions -----*/
+function openModal() {
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+setTimeout(openModal, 5000);
