@@ -15,6 +15,8 @@ const inputGroupBtns = document.querySelector('.input-section')
 const guessBoard = document.querySelector('.guessing-board');
 const previousGuessesBoard = document.querySelector('.guessed-letters');
 const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
+const winOrLose = document.querySelector('#win-or-lose')
+const imgRows = document.querySelector('.row');
 
 /*----- modal cached element references ----*/
 const howToPlayBtn = document.querySelector('.how-to-play');
@@ -40,15 +42,26 @@ function findPositions(first, second) {
     })
 };
 
+function gameReset() {
+    imgIndex = 0;
+    guessBoard.innerText = '';
+    previousGuessesBoard.innerText = '';
+    winOrLose.innerText = '';
+    wordArr = [];
+    previousGuessedLetters = [];
+    wordIndex = [];
+    spaceshipImgs.forEach(element => element.style.visibility = 'hidden'); 
+}
+
 /*----- functions -----*/
 function renderGame(event) {
-    seperateWordInput(event)  
-    checkLetterGuess(event)
+    seperateWordInput(event);  
+    checkLetterGuess(event);
 };
 
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
-        guessBoard.innerText = '';
+        gameReset();
         wordToGuessInput = document.querySelector('#word-to-guess');
         wordArr = wordToGuessInput.value.toUpperCase().split('');
         displayEmptyBoard();
@@ -59,7 +72,7 @@ function seperateWordInput(event) {
 function displayEmptyBoard() {
     for (let i = 0; i < wordArr.length; i++) {
         let spanEl = document.createElement('span');
-        let pEl = document.createElement('p')
+        let pEl = document.createElement('p');
         pEl.innerText = wordArr[i];
         pEl.classList.add('letter-spread', `word${i}`);
         spanEl.appendChild(pEl);
@@ -74,7 +87,7 @@ function checkLetterGuess(event) {
         let letterInputValue = letterInput.value.toUpperCase();
         if (LETTERS.includes(letterInputValue)) {
             if (wordArr.includes(letterInputValue)) {
-                findPositions(wordArr, letterInputValue)
+                findPositions(wordArr, letterInputValue);
                 for (let i = 0; i < wordIndex.length; i++) {
                     word = document.querySelector(`.word${wordIndex[i]}`);
                     word.style.visibility = 'visible';
@@ -86,26 +99,32 @@ function checkLetterGuess(event) {
             }
             addToPreviouslyGuessed(letterInputValue);
             letterInput.value = '';
+            checkIfWinner();
         } 
     } 
 };
 
 function addToPreviouslyGuessed(letter) {
     let spanEl = document.createElement('span');
-    spanEl.classList.add('aside-text')
+    spanEl.classList.add('aside-text');
     if (!previousGuessedLetters.includes(letter)) {
-        previousGuessedLetters.push(letter)
-        spanEl.innerText = letter
-        previousGuessesBoard.append(spanEl)
+        previousGuessedLetters.push(letter);
+        spanEl.innerText = letter;
+        previousGuessesBoard.append(spanEl);
     }
 };
 
 function checkIfLoser() {
-	if (imgIndex >= 9) {
-		console.log('you lost');
-		// spaceshipImgs.style.backgroundImage =
-		// 	'url(./assets/images/rocketLaunch.jpg)';
-	}
+    if (imgIndex >= 9) {
+        winOrLose.innerText = `You lost! The word was ${wordArr.join('')}!`;
+    }
+}
+
+function checkIfWinner() {
+    if(wordArr.every(element => previousGuessedLetters.includes(element))) {
+        winOrLose.innerText = "🏆 You've guessed the word! 🏆";
+        winOrLose.style.color = '#4C96AF';
+    }
 }
 
 /*----- Modal Functions -----*/
@@ -116,5 +135,3 @@ function openModal() {
 function closeModal() {
     modal.style.display = 'none';
 }
-
-setTimeout(openModal, 5000);

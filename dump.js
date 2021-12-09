@@ -37,3 +37,6 @@ function checkIfLoser() {
 		alert('you lost');
 	}
 }
+
+
+setTimeout(openModal, 1500);

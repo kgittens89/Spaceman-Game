@@ -9,13 +9,18 @@ body {
 h1 {
     text-align: center;
     padding-bottom: 15px;
-    font-family: 'Nexa Rust Slab';
+    font-family: 'Nexa Rust Slab', 'Monoton', 'Bungee Shade', cursive;
     font-size: 3em;
 }
 
-h3, h4 {
+h2, h3, h4 {
     text-align: center;
     text-decoration: underline;
+}
+
+h2 { 
+    text-decoration: none;
+    color: #DC4B4B
 }
 
 aside {
@@ -74,7 +79,7 @@ div img {
     align-items: center;
     justify-content: center;
     border: 1px solid black;
-       background-image: url(./assets/images/spaceStar.jpg);
+    background-image: url(./assets/images/spaceStar.jpg);
     background-size: cover;
 }
 
@@ -112,15 +117,15 @@ div img {
 }
 
 #how-to-play-modal {
-    	background-color: rgba(0, 0, 0, 0.4);
-    	position: fixed;
-    	top: 0;
-    	left: 0;
-    	height: 100%;
-    	width: 100%;
-    	z-index: 1;
-    	overflow: auto;
-        display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    overflow: auto;
+    display: none;
 }
 
 #modal-textbox {

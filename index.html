@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Monoton&family=Righteous&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
     <title>Spaceman Game</title>
 </head>
@@ -36,12 +36,12 @@
             </div>
             <div class="input-section">
                 <div class="input-group">
-                    <label for="word-to-guess">What word should they guess?</label>
+                    <label for="word-to-guess">Choose your secret word</label>
                     <input type="text" id="word-to-guess">
                     <button class="submit-word-to-guess">Submit</button>
                 </div>
                 <div class="input-group">
-                    <label for="letter-input">Pick a letter</label>
+                    <label for="letter-input">Guess a letter</label>
                     <input type="text" id="letter-input">
                     <button class="submit-input">Submit</button>
                 </div>
@@ -52,10 +52,11 @@
             <div id="modal-textbox">
                 <h1>How to play Spaceman</h1>
                 <ol>
-                    <li>Player 1 will input a word to be guessed in the appropriate box. Be sure to submit your word.</li>
-                    <li>This will layout empty boxes for the amount of letters that word contains.</li>
-                    <li>Player 2 will then input 1 letter at a time, into the appropriate box. Be sure to submit your guess.</li>
+                    <li>Player 1, input a word to be guessed in the appropriate box. Be sure to submit.</li>
+                    <li>A blank line for each letter of the word will display across the board.</li>
+                    <li>Player 2, input your guesses, one letter at a time, into the appropriate box. Be sure to submit.</li>
                     <li>The round is over when either the word is guessed, or the spaceship is completely visible.</li>
+                    <li>Just submit another word to start a new round.</li>
                     <li>Good luck!</li>
                 </ol>
                 <div id="modal-footer">
@@ -63,8 +64,11 @@
                 </div>
             </div>
         </div>
-        <h3>Guess the word</h3>
-        <div class="guessing-board"></div> 
+        <div class="bottom">
+            <h2 id="win-or-lose"></h2>
+            <h3>Guessing Board</h3>
+            <div class="guessing-board"></div> 
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>
