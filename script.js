@@ -6,13 +6,14 @@ const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 let wordArr = [];
 let wordToGuess;
 let imgIndex = 0;
+let wordIndex = [];
 
 /*----- cached element references -----*/
 const howToPlayBtn = document.querySelector('.how-to-play');
 
 const inputGroupBtns = document.querySelector('.input-section')
 const guessBoard = document.querySelector('.guessing-board');
-const previousGuesses = document.querySelector('.guessed-letters');
+const previousGuessesBoard = document.querySelector('.guessed-letters');
 const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
 
 
@@ -22,6 +23,15 @@ inputGroupBtns.addEventListener('click', renderGame)
 
 /*----- helper functions -----*/
 
+// This article was referenced for the following function 
+// https://www.tutorialspoint.com/find-and-return-array-positions-of-multiple-values-javascript
+function findPositions(first, second) {
+    first.forEach((element, index) => {
+        if (second.includes(element)) {
+            wordIndex.push(index)
+        }
+    })
+};
 
 /*----- functions -----*/
 function renderGame(event) {
@@ -52,11 +62,11 @@ function displayEmptyBoard() {
 };
 
 
-let wordIndex = [];
 
 function checkLetterGuess(event) {
     if (event.target.classList.contains('submit-input')) {
         const letterInput = document.querySelector('#letter-input').value.toUpperCase();
+        addToPreviouslyGuessed(letterInput)
         if (LETTERS.includes(letterInput)) {
             if (wordArr.includes(letterInput)) {
                 findPositions(wordArr, letterInput)
@@ -64,8 +74,7 @@ function checkLetterGuess(event) {
                 for (let i = 0; i < wordIndex.length; i++) {
                     word = document.querySelector(`.word${wordIndex[i]}`);
                     word.style.visibility = 'visible';
-                }
-                
+                }  
             } else {
                 console.log('here');
                 spaceshipImgs[imgIndex].style.visibility = 'visible';
@@ -75,13 +84,10 @@ function checkLetterGuess(event) {
     } 
 }
 
-
-// This article was referenced for the following function 
-// https://www.tutorialspoint.com/find-and-return-array-positions-of-multiple-values-javascript
-function findPositions(first, second) {
-    first.forEach((element, index) => {
-        if (second.includes(element)) {
-            wordIndex.push(index)
-        }
-    })
-};
+let previousGuessedLetters = [];
+function addToPreviouslyGuessed(letter) {
+    let spanEl = document.createElement('span');
+    spanEl.classList.add('aside-text')
+    spanEl.innerText = letter
+    previousGuessesBoard.append(spanEl)
+}

@@ -82,3 +82,13 @@ div img {
     border-bottom: black;
     visibility: hidden;
 }
+
+.guessed-letters {
+    display: flex;
+    flex-direction: column;
+}
+
+.aside-text {
+    font-size: 1em;
+    font-weight: 800;
+}
