@@ -3,7 +3,7 @@ const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 
 
 /*----- app's state (variables) -----*/
-let wordToGuess;
+let wordToGuessInput;
 let word;
 let imgIndex = 0;
 let wordIndex = [];
@@ -38,16 +38,16 @@ function findPositions(first, second) {
 function renderGame(event) {
     seperateWordInput(event)  
     checkLetterGuess(event)
-}
+};
 
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
-        wordToGuess = document.querySelector('#word-to-guess');
-        wordArr = wordToGuess.value.toUpperCase().split('');
+        wordToGuessInput = document.querySelector('#word-to-guess');
+        wordArr = wordToGuessInput.value.toUpperCase().split('');
         displayEmptyBoard();
-        wordToGuess.value = '';
+        wordToGuessInput.value = '';
     }
-}
+};
 
 function displayEmptyBoard() {
     for (let i = 0; i < wordArr.length; i++) {
@@ -75,12 +75,13 @@ function checkLetterGuess(event) {
             } else {
                 spaceshipImgs[imgIndex].style.visibility = 'visible';
                 imgIndex++;
+                console.log(imgIndex)
             }
             addToPreviouslyGuessed(letterInputValue);
             letterInput.value = '';
         } 
     } 
-}
+};
 
 function addToPreviouslyGuessed(letter) {
     let spanEl = document.createElement('span');
@@ -90,4 +91,4 @@ function addToPreviouslyGuessed(letter) {
         spanEl.innerText = letter
         previousGuessesBoard.append(spanEl)
     }
-}
+};

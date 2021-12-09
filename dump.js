@@ -29,3 +29,11 @@ document.getElementsByClassName(
     
     // wordArr.splice(`${wordIndex}`, 1)
     // console.log(wordArr)
+
+
+
+function checkIfLoser() {
+	if (imgIndex >= 9) {
+		alert('you lost');
+	}
+}
