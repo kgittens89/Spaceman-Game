@@ -1,4 +1,6 @@
 # Spaceman Game 
+
+
 ![Game Screen](./assets//images/Game-screen.png)
 ![How to play modal](./assets/images/How-to-play-modal.png)
 
@@ -11,11 +13,17 @@ A browser-based Spaceman two-player game. A user, player 1, will input a word to
 This project utilizes HTML, CSS, and vanilla Javascript
 
 ## Installation 
-Fork this repo and
+Fork this repo to your account. Clone it to your machine. Run Live Server from the index.html file.
 
 ## Wire Frames
+
 ![Spaceman initial screen sketch](./assets/images/Spaceman-sketch.png)
 ![How to play modal](./assets/images/How-to-play.png)
+
+## Difficulties
+A hurdle I faced while building this project was the logic to display all of the letters in the word when a correct guess was made. I initially tried .indexOf(), which only returned the first index. Then I tried adding on .lastIndexOf, and adding both to an array to iterate through and display the letters at that index. Unfortunately, this only gave me the first and last index of the correctly guessed letters. After some internet searching, I came across an article that displayed a function to find all of the indices. After applying the function to my code, I was able to identify all indices related to correct guesses. 
+
+https://www.tutorialspoint.com/find-and-return-array-positions-of-multiple-values-javascript
 
 
 ## User Stories
