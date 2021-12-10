@@ -1,15 +1,17 @@
-## Project Choice (Tell us which project you're doing!)
-
-- [ ] Flash Cards
-- [ ] Trivia (Self-scoring)
-- [ ] Spaceman
-- [ ] Tower of Hanoi
-- [ ] Simon
+# Spaceman Game 
+![Game Screen](./assets//images/Game-screen.png)
+![How to play modal](./assets/images/How-to-play-modal.png)
 
 ## Project Description 
 
 A browser-based Spaceman two-player game. A user, player 1, will input a word to be guessed by their opponent, player 2, at the start of the game. The word is represented by blank spaces for each letter on the page, which are revealed when guessed. For wrong guesses, a part of the spaceship is revealed. If player 2 guesses the word before the spaceship is completely built, they win. If not, player 1 wins. 
 
+
+## Technologies
+This project utilizes HTML, CSS, and vanilla Javascript
+
+## Installation 
+Fork this repo and
 
 ## Wire Frames
 ![Spaceman initial screen sketch](./assets/images/Spaceman-sketch.png)

@@ -40,10 +40,6 @@ div img {
     border: 1px solid black;
 }
 
-#modal-textbox h1 {
-    font-size: 2em;
-}
-
 .top-section {
     display: flex;
     justify-content: space-around;
@@ -94,7 +90,7 @@ div img {
     font-size: 3em;
     line-height: 1px;
     letter-spacing: 0.7em;
-    border-bottom: 1px solid #3A4750;
+    border-bottom: 2px solid #3A4750;
     margin: 3px;
 }
 
@@ -140,6 +136,9 @@ div img {
     text-align: center;
 }
 
+#modal-textbox h1 {
+    font-size: 2em;
+}
 
 @media(max-width: 675px) {
     .word-spread {
