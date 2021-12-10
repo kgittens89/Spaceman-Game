@@ -1,9 +1,6 @@
-/* * {
-    border: 1px solid black;
-} */
-
 body {
     font-family: 'Righteous';
+    background-color: #EEEEEE;
 }
 
 h1 {
@@ -129,7 +126,7 @@ div img {
 }
 
 #modal-textbox {
-    background-color: white;
+    background-color: #EEEEEE;
     height: 350px;
     width: 550px;
     border-radius: 2px;

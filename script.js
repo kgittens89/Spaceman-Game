@@ -42,16 +42,22 @@ function findPositions(first, second) {
     })
 };
 
+function clearPreviouslyGuessesBoard() {
+    let span = document.querySelectorAll('.guessed-letters span')
+    span.forEach(element => element.remove())
+}
+
+
 function gameReset() {
     imgIndex = 0;
     guessBoard.innerText = '';
-    previousGuessesBoard.innerText = '';
     winOrLose.innerText = '';
     wordArr = [];
     previousGuessedLetters = [];
     wordIndex = [];
+    clearPreviouslyGuessesBoard();
     spaceshipImgs.forEach(element => element.style.visibility = 'hidden'); 
-}
+};
 
 /*----- functions -----*/
 function renderGame(event) {
@@ -125,13 +131,13 @@ function checkIfWinner() {
         winOrLose.innerText = "🏆 You've guessed the word! 🏆";
         winOrLose.style.color = '#4C96AF';
     }
-}
+};
 
 /*----- Modal Functions -----*/
 function openModal() {
     modal.style.display = 'block';
-}
+};
 
 function closeModal() {
     modal.style.display = 'none';
-}
+};
