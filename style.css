@@ -54,7 +54,7 @@ div img {
 }
 
 .guessing-board {
-    height: 150px;
+    height: 225px;
     text-align: center;
     border: 2px dotted #3A4750;
 }
@@ -103,7 +103,7 @@ div img {
 
 .letter-spread {
     display: flex;
-    visibility: hidden; 
+    visibility: hidden;
 }
 
 .guessed-letters {
@@ -141,4 +141,15 @@ div img {
 
 #modal-footer {
     text-align: center;
+}
+
+
+@media(max-width: 675px) {
+    .word-spread {
+        letter-spacing: 0.2em;
+    }
+
+    div img {
+        height: 3em;
+    }
 }
