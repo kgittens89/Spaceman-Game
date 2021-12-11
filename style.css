@@ -1,0 +1,151 @@
+body {
+    font-family: 'Righteous';
+    background-color: #EEEEEE;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 15px;
+    font-family: 'Nexa Rust Slab', 'Monoton', 'Bungee Shade', cursive;
+    font-size: 3em;
+}
+
+h2, h3, h4 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h2 { 
+    text-decoration: none;
+    color: #DC4B4B
+}
+
+aside {
+    display: flex;
+    flex: 1 1 25%;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #3A4750;
+    border: none;
+    border-radius: 3px;
+    color: #EEEEEE;
+    font-family: 'Righteous';
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+div img {
+    border: 1px solid black;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-around;
+    height: 400px;
+}
+
+.guessing-board {
+    height: 225px;
+    text-align: center;
+    border: 2px dotted #3A4750;
+}
+
+.how-to-play {
+    font-size: 1em;
+    padding: 5px;
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 15%;
+}
+
+.spaceship-images {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-image: url(./assets/images/spaceStar.jpg);
+    background-size: cover;
+}
+
+.row {
+    visibility: hidden;
+}
+
+.input-group {
+    margin: 2em;
+    text-align: center;
+}
+
+.word-spread {
+    display: inline-block;
+    font-size: 3em;
+    line-height: 1px;
+    letter-spacing: 0.7em;
+    border-bottom: 2px solid #3A4750;
+    margin: 3px;
+}
+
+.letter-spread {
+    display: flex;
+    visibility: hidden;
+}
+
+.guessed-letters {
+    display: flex;
+    flex-direction: column;
+}
+
+.aside-text {
+    font-size: 1em;
+    font-weight: 800;
+}
+
+#how-to-play-modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+}
+
+#modal-textbox {
+    background-color: #EEEEEE;
+    height: 350px;
+    width: 550px;
+    border-radius: 2px;
+    margin: 150px auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    line-height: 120%;
+}
+
+#modal-footer {
+    text-align: center;
+}
+
+#modal-textbox h1 {
+    font-size: 2em;
+}
+
+@media(max-width: 675px) {
+    .word-spread {
+        letter-spacing: 0.2em;
+    }
+
+    div img {
+        height: 3em;
+    }
+}
