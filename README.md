@@ -1,7 +1,7 @@
 # Spaceman Game 
 
 
-![Game Screen](./assets//images/Game-screen.png)
+![Game Screen](./assets//images/spaceman-winner.jpeg)
 ![How to play modal](./assets/images/How-to-play-modal.png)
 
 ## Project Description 
