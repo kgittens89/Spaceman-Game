@@ -69,11 +69,13 @@ function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
         gameReset();
         wordToGuessInput = document.querySelector('#word-to-guess');
-        if (wordToGuessInput.value.toUpperCase().match(/^[A-Za-z]+$/)) {
+        if (wordToGuessInput.value.match(/^[A-Za-z]+$/)) {
 					wordArr = wordToGuessInput.value.toUpperCase().split('');
 					displayEmptyBoard();
 					wordToGuessInput.value = '';
-				}
+        } else {
+            winOrLose.innerText = 'Please enter a valid word.'
+                }
     }
 };
 
