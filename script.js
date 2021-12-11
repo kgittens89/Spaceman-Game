@@ -69,9 +69,11 @@ function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
         gameReset();
         wordToGuessInput = document.querySelector('#word-to-guess');
-        wordArr = wordToGuessInput.value.toUpperCase().split('');
-        displayEmptyBoard();
-        wordToGuessInput.value = '';
+        if (wordToGuessInput.value.toUpperCase().match(/^[A-Za-z]+$/)) {
+					wordArr = wordToGuessInput.value.toUpperCase().split('');
+					displayEmptyBoard();
+					wordToGuessInput.value = '';
+				}
     }
 };
 
