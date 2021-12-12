@@ -1,5 +1,5 @@
 body {
-    font-family: 'Righteous';
+    font-family: 'Righteous', display;
     background-color: #EEEEEE;
     max-width: 1250px;
     min-width: 450px;
@@ -33,7 +33,7 @@ button {
     border: none;
     border-radius: 3px;
     color: #EEEEEE;
-    font-family: 'Righteous';
+    font-family: 'Righteous', display;
     cursor: pointer;
     margin-top: 5px;
 }
@@ -76,10 +76,6 @@ div img {
     border: 1px solid black;
     background-image: url(./assets/images/spaceStar.jpg);
     background-size: cover;
-}
-
-.row {
-    visibility: hidden;
 }
 
 .input-group {
@@ -158,4 +154,3 @@ div img {
         width: 2.5em;
     }
 }
-

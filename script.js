@@ -29,6 +29,7 @@ inputGroupBtns.addEventListener('click', renderGame)
 howToPlayBtn.addEventListener('click', openModal)
 closeBtn.addEventListener('click', closeModal);
 
+setTimeout(openModal, 2500);
 
 /*----- helper functions -----*/
 
