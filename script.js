@@ -75,7 +75,7 @@ function seperateWordInput(event) {
         wordToGuessInput = document.querySelector('#word-to-guess');
         if (wordToGuessInput.value.match(/^[A-Za-z]+$/)) {
             wordArr = wordToGuessInput.value.toUpperCase().split('');
-            displayEmptyBoard();
+            displayEmptyBoard(wordArr);
             wordToGuessInput.value = '';
         } else {
             winOrLose.innerText = 'Please enter a valid word.'
@@ -83,11 +83,11 @@ function seperateWordInput(event) {
     }
 };
 
-function displayEmptyBoard() {
-    for (let i = 0; i < wordArr.length; i++) {
+function displayEmptyBoard(arr) {
+    for (let i = 0; i < arr.length; i++) {
         let spanEl = document.createElement('span');
         let pEl = document.createElement('p');
-        pEl.innerText = wordArr[i];
+        pEl.innerText = arr[i];
         pEl.classList.add('letter-spread', `word${i}`);
         spanEl.appendChild(pEl);
         spanEl.classList.add('word-spread');
