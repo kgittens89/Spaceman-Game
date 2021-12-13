@@ -16,7 +16,6 @@ const guessBoard = document.querySelector('.guessing-board');
 const previousGuessesBoard = document.querySelector('.guessed-letters');
 const spaceshipImgs = document.querySelectorAll('.spaceship-images img');
 const winOrLose = document.querySelector('#win-or-lose')
-const imgRows = document.querySelector('.row');
 
 /*----- modal cached element references ----*/
 const howToPlayBtn = document.querySelector('.how-to-play');
@@ -43,7 +42,7 @@ function findPositions(first, second) {
     })
 };
 
-function clearPreviouslyGuessesBoard() {
+function clearPreviouslyGuessedBoard() {
     let span = document.querySelectorAll('.guessed-letters span')
     span.forEach(element => element.remove())
 }
@@ -56,7 +55,7 @@ function gameReset() {
     wordArr = [];
     previousGuessedLetters = [];
     wordIndex = [];
-    clearPreviouslyGuessesBoard();
+    clearPreviouslyGuessedBoard();
     spaceshipImgs.forEach(element => element.style.visibility = 'hidden'); 
 };
 
@@ -66,25 +65,29 @@ function renderGame(event) {
     checkLetterGuess(event);
 };
 
+
+// This article was referenced for the regex expression on line 76 
+https://www.w3resource.com/javascript/form/all-letters-field.php
+
 function seperateWordInput(event) {
     if (event.target.classList.contains('submit-word-to-guess')) {
         gameReset();
         wordToGuessInput = document.querySelector('#word-to-guess');
         if (wordToGuessInput.value.match(/^[A-Za-z]+$/)) {
-					wordArr = wordToGuessInput.value.toUpperCase().split('');
-					displayEmptyBoard();
-					wordToGuessInput.value = '';
+            wordArr = wordToGuessInput.value.toUpperCase().split('');
+            displayEmptyBoard(wordArr);
+            wordToGuessInput.value = '';
         } else {
             winOrLose.innerText = 'Please enter a valid word.'
-                }
+        }
     }
 };
 
-function displayEmptyBoard() {
-    for (let i = 0; i < wordArr.length; i++) {
+function displayEmptyBoard(arr) {
+    for (let i = 0; i < arr.length; i++) {
         let spanEl = document.createElement('span');
         let pEl = document.createElement('p');
-        pEl.innerText = wordArr[i];
+        pEl.innerText = arr[i];
         pEl.classList.add('letter-spread', `word${i}`);
         spanEl.appendChild(pEl);
         spanEl.classList.add('word-spread');
