@@ -19,7 +19,8 @@ h2, h3, h4 {
 
 h2 { 
     text-decoration: none;
-    color: #DC4B4B
+    color: #DC4B4B;
+    visibility: hidden;
 }
 
 aside {
