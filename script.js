@@ -99,23 +99,31 @@ function checkLetterGuess(event) {
     if (event.target.classList.contains('submit-input')) {
         const letterInput = document.querySelector('#letter-input');
         let letterInputValue = letterInput.value.toUpperCase();
-        if (LETTERS.includes(letterInputValue)) {
-            if (wordArr.includes(letterInputValue)) {
-                findPositions(wordArr, letterInputValue);
-                for (let i = 0; i < wordIndex.length; i++) {
-                    word = document.querySelector(`.word${wordIndex[i]}`);
-                    word.style.visibility = 'visible';
-                }  
-            } else {
-                spaceshipImgs[imgIndex].style.visibility = 'visible';
-                imgIndex++;
-                checkIfLoser();
+        if (previousGuessedLetters.includes(letterInputValue)) {
+            winOrLose.innerText = "You've guessed this letter already. Try again."
+            winOrLose.style.visibility = 'visible'
+            setTimeout(() =>
+            winOrLose.style.visibility = 'hidden', 3000
+            )
+        } else {
+            if (LETTERS.includes(letterInputValue)) {
+                if (wordArr.includes(letterInputValue)) {
+                    findPositions(wordArr, letterInputValue);
+                    for (let i = 0; i < wordIndex.length; i++) {
+                        word = document.querySelector(`.word${wordIndex[i]}`);
+                        word.style.visibility = 'visible';
+                    }
+                } else {
+                    spaceshipImgs[imgIndex].style.visibility = 'visible';
+                    imgIndex++;
+                    checkIfLoser();
+                }
+                addToPreviouslyGuessed(letterInputValue);
+                letterInput.value = '';
+                checkIfWinner();
             }
-            addToPreviouslyGuessed(letterInputValue);
-            letterInput.value = '';
-            checkIfWinner();
-        } 
-    } 
+        }
+    }
 };
 
 function addToPreviouslyGuessed(letter) {
