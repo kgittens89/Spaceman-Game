@@ -78,7 +78,7 @@ function seperateWordInput(event) {
             displayEmptyBoard(wordArr);
             wordToGuessInput.value = '';
         } else {
-            winOrLose.innerText = 'Please enter a valid word.'
+            winOrLose.innerText = 'Please enter a valid word.';
         }
     }
 };
@@ -131,6 +131,7 @@ function addToPreviouslyGuessed(letter) {
 function checkIfLoser() {
     if (imgIndex >= 9) {
         winOrLose.innerText = `You lost! The word was ${wordArr.join('')}!`;
+        winOrLose.style.visibility = 'visible';
     }
 }
 
@@ -138,6 +139,7 @@ function checkIfWinner() {
     if(wordArr.every(element => previousGuessedLetters.includes(element))) {
         winOrLose.innerText = "🏆 You've guessed the word! 🏆";
         winOrLose.style.color = '#4C96AF';
+        winOrLose.style.visibility = 'visible';
     }
 };
 
